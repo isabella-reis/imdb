@@ -13,6 +13,7 @@ export default function NavbarItem({ title, param }) {
       <Link
         href={`/?genre=${param}`}
         className={`m-4 font-semibold p-2 hover:text-pink-300 ${
+          //OBS.: our genre is our params, our params is "fetchTrending" or "fetchTopRated", we defined it in the NavbarItem.
           // if the genre exist, check to what params it is equal and then apply the style
           genre &&
           genre === param &&
@@ -24,3 +25,5 @@ export default function NavbarItem({ title, param }) {
     </div>
   );
 }
+
+// https://api.themovieddb.org/3/trending/movie/week?api_key=9416fdf69c2f1340fd59145df5f1f2b2
