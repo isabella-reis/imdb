@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import Providers from "./Providers";
 import Navbar from "@/components/Navbar";
 import Header from "@/components/Header";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
@@ -22,10 +24,9 @@ export default function RootLayout({ children }) {
 
           {/* Navbar */}
           <Navbar />
-          
-          {/* SearchBox */}
 
-          {children}
+          {/* SearchBox */}
+          <Suspense fallback={<Loading className="h-96"/>}>{children}</Suspense>
         </Providers>
       </body>
     </html>
