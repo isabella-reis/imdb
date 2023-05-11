@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import Providers from "./Providers";
 import Navbar from "@/components/Navbar";
 import Header from "@/components/Header";
+import SearchBox from "@/components/SearchBox";
 import { Suspense } from "react";
 import Loading from "./loading";
 
@@ -26,7 +27,10 @@ export default function RootLayout({ children }) {
           <Navbar />
 
           {/* SearchBox */}
-          <Suspense fallback={<Loading className="h-96"/>}>{children}</Suspense>
+          <SearchBox />
+          <Suspense fallback={<Loading className="h-96" />}>
+            {children}
+          </Suspense>
         </Providers>
       </body>
     </html>
